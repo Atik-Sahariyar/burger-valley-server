@@ -1,4 +1,4 @@
-const Product = require("./product.model");
+const Product = require("../models/ProductModel");
 
 // get all products
 exports.getAllProducts = async (req, res) => {
@@ -10,7 +10,7 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
-// Get products by category
+// get products by category
 exports.getProductsByCategory = async (req, res) => {
   try {
     const { category } = req.params;
