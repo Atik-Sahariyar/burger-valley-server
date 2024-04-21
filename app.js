@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const router = require("./src/api");
+const router = require("./src/apis");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
