@@ -7,11 +7,15 @@ const categorySchema = new mongoose.Schema({
   },
   categoryImage: {
     type: String,
-    default: "",
   },
   categoryDescription: {
     type: String,
-    default: "",
+  },
+  bgColorCode: {
+    type: String,
+  },
+  linkColorCode: {
+    type: String,
   },
 });
 

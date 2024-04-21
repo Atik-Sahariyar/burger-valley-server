@@ -8,4 +8,4 @@ productRouter.get("/products/category/:category", productController.getProductsB
 productRouter.put("/products/:id", productController.updateProductById);
 productRouter.delete("/products/:id", productController.deleteProductById);
 
-module.exports = router;
+module.exports = productRouter;
