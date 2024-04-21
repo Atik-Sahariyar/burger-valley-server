@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const router = require("./src/apis");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -13,13 +12,14 @@ const hpp = require("hpp");
 const xss = require("xss-clean");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
+const router = require("./src/apis");
 
 // Configure rate limiting
 const limiter = rateLimit({ windowMs: 60 * 60 * 1000, limit: 1000 });
 
 // CORS options
 const corsOptions = {
-  origin: ["*", "http://localhost:5173", "http://localhost:5174"],
+  origin: ["*"],
   credentials: true,
   optionSuccessStatus: 200,
 };
