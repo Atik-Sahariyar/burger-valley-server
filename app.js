@@ -19,7 +19,7 @@ const limiter = rateLimit({ windowMs: 60 * 60 * 1000, limit: 1000 });
 
 // CORS options
 const corsOptions = {
-  origin: ["*"],
+  origin: ["*", "http://localhost:5173", "http://localhost:5174"],
   credentials: true,
   optionSuccessStatus: 200,
 };
