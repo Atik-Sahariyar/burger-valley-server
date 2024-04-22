@@ -1,5 +1,16 @@
 const Product = require("../models/ProductModel");
 
+// create new product
+exports.createProduct = async (req, res) => {
+  try {
+    const productData = req.body;
+    const newProduct = await Product.create(productData);
+    res.status(201).json(newProduct);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // get all products
 exports.getAllProducts = async (req, res) => {
   try {
@@ -15,6 +26,22 @@ exports.getProductsByCategory = async (req, res) => {
   try {
     const { category } = req.params;
     const products = await Product.find({ category });
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// get peginated product by category
+exports.getPaginatedProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const page = req.query.page || 1;
+    const limit = 16;
+    const skip = (page - 1) * limit;
+
+    const products = await Product.find({ category }).skip(skip).limit(limit);
+
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -60,6 +87,20 @@ exports.deleteProductById = async (req, res) => {
       return res.status(404).json({ message: "Product not found" });
     }
     res.json({ message: "Product deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// get discounted products by category
+exports.getDiscountedProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const discountedProducts = await Product.find({
+      category,
+      discount: { $gt: 0 },
+    });
+    res.json(discountedProducts);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
