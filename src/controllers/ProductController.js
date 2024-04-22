@@ -64,3 +64,17 @@ exports.deleteProductById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// get discounted products by category
+exports.getDiscountedProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const discountedProducts = await Product.find({
+      category,
+      discount: { $gt: 0 },
+    });
+    res.json(discountedProducts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

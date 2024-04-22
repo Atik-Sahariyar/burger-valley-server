@@ -4,8 +4,16 @@ const productController = require("../controllers/ProductController");
 
 productRouter.get("/products", productController.getAllProducts);
 productRouter.get("/products/:id", productController.getProductById);
-productRouter.get("/products/category/:category", productController.getProductsByCategory);
+productRouter.get(
+  "/products/category/:category",
+  productController.getProductsByCategory
+);
 productRouter.put("/update/products/:id", productController.updateProductById);
 productRouter.delete("/products/:id", productController.deleteProductById);
+
+productRouter.get(
+  "/products/discounted/category/:category",
+  productController.getDiscountedProductsByCategory
+);
 
 module.exports = productRouter;
