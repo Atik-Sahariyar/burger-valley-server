@@ -1,13 +1,17 @@
 const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+const SECRET_KEY = process.env.SECRET_KEY;
+const REFRESH_SECRET_KEY = process.env.REFRESH_SECRET_KEY;
 
 const generateAccessToken = (userId) => {
-  return jwt.sign({ userId }, "secretKey", { expiresIn: "15m" });
+  return jwt.sign({ userId }, SECRET_KEY, { expiresIn: "15m" });
 };
 
 const generateRefreshToken = (userId) => {
-  return jwt.sign({ userId }, "refreshSecretKey");
+  return jwt.sign({ userId }, REFRESH_SECRET_KEY);
 };
 
 const userController = {
@@ -40,7 +44,7 @@ const userController = {
   refreshToken: (req, res) => {
     const refreshToken = req.body.token;
     if (!refreshToken) return res.sendStatus(401);
-    jwt.verify(refreshToken, "refreshSecretKey", (err, user) => {
+    jwt.verify(refreshToken, REFRESH_SECRET_KEY, (err, user) => {
       if (err) return res.sendStatus(403);
       const accessToken = generateAccessToken(user.userId);
       res.json({ accessToken });
