@@ -3,10 +3,11 @@ const router = express.Router();
 
 // Import all routers
 const routers = [
-    require("./routers/CategoryRoutes"),
-    require("./routers/NewsRoutes"),
-    require("./routers/cartsRoutes"),
-    require("./routers/reviewsRoutes"),
+  require("./routers/CategoryRoutes"),
+  require("./routers/NewsRoutes"),
+  require("./routers/cartsRoutes"),
+  require("./routers/reviewsRoutes"),
+  require("./routers/ProductRoutes"),
 ];
 
 // Dynamically apply routers
