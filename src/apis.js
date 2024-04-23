@@ -8,6 +8,7 @@ const routers = [
   require("./routers/cartsRoutes"),
   require("./routers/reviewsRoutes"),
   require("./routers/ProductRoutes"),
+  require("./routers/UserRouter"),
 ];
 
 // Dynamically apply routers

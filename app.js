@@ -26,17 +26,17 @@ const corsOptions = {
 
 // Use security middleware
 app.use(cors(corsOptions));
-app.use(cookieParser());
 app.use(helmet());
 app.use(mongoSanitize());
 app.use(hpp());
 app.use(xss());
 app.use(limiter);
 
-// Use non-security middleware
+// Non-security middleware
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // API routes
 app.use("/api/v1", router);
