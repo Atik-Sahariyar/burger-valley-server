@@ -16,7 +16,7 @@ newsRouter.post("/news", postNews);
 newsRouter.patch("/news/:id", updateNews);
 
 // delete a news 
-newsRouter.patch("/news/:id", deleteNews);
+newsRouter.delete("/news/:id", deleteNews);
 
 
 module.exports = newsRouter
