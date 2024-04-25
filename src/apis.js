@@ -9,6 +9,9 @@ const routers = [
   require("./routers/reviewsRoutes"),
   require("./routers/ProductRoutes"),
   require("./routers/UserRouter"),
+  require("./routers/wishlistsRoutes"),
+  require("./routers/OrdersRouter"),
+  require("./routers/PaymentRoutes")
 ];
 
 // Dynamically apply routers

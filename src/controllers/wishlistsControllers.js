@@ -1,7 +1,7 @@
 const Wishlists = require("../models/WishlistModel");
 
 // get my all Wishlists by email
-exports.getMyWishlistsController = async (req, res) => {
+exports.getWishlistsController = async (req, res) => {
   try {
     const email = req.params.email;
     const filter = { customer_email: email };
@@ -51,7 +51,7 @@ exports.postWishlistController = async (req, res) => {
 };
 
 // add to Wishlists
-exports.postManyWishlistsConroller = async (req, res) => {
+exports.postManywishlistsConroller = async (req, res) => {
   try {
     const email = req.params.email;
     const incomingWishlists = req.body; 
@@ -117,7 +117,7 @@ exports.deleteWishlistController = async (req, res) => {
 
 
 // delete my Wishlists
-exports.deleteMyWishlistsController = async (req, res) => {
+exports.deleteWishlistsController = async (req, res) => {
   try {
     const email = req.params.email;
     const result = await Wishlists.deleteMany({customer_email: email});

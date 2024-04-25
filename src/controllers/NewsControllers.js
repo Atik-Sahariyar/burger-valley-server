@@ -3,6 +3,7 @@ const News = require("../models/NewsModel");
 // get all news controller
 exports.getAllNews = async (req, res) => {
   try {
+    console.log("news");
     const result = await News.find();
     res.send(result);
   } catch (error) {

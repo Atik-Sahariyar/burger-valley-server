@@ -5,11 +5,11 @@ const store_passwd = process.env.STORE_PASS;
 const is_live = false; //true for live, false for sandbox
 
 const { ObjectId } = require("mongodb");
-const Carts = require("../../Models/Carts/Carts");
-const Orders = require("../../Models/Orders/Orders");
-const BuyBooks = require("../../Models/buyBooks/buyBooks");
+
 const { default: mongoose } = require("mongoose");
-const SellerOrders = require("../../Models/SellerOrders/SellerOrders");
+const Orders = require("../models/OrdersModel");
+const Carts = require("../models/CartsModel");
+const SellerOrders = require("../models/SellerOrders");
 
 exports.postOrder = async (req, res) => {
   const userEmail = req?.body?.email;

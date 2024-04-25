@@ -1,6 +1,6 @@
 const express = require('express');
-const { getWishlistsController, getOneWishlistController, postWishlistController, postManywishlistsConroller, updateWishlistController, deleteWishlistController, deleteWishlistsController } = require('../controllers/wishlistsControllers');
- 
+
+const { getWishlistsController, getOneWishlistController, postWishlistController, postManywishlistsConroller, updateWishlistController, deleteWishlistController, deleteWishlistsController } = require("../controllers/wishlistsControllers")
 const WishlistsRouter = express.Router();
 
 
